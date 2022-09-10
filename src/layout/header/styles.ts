@@ -3,7 +3,9 @@ import { css } from '@emotion/css'
 export const sHeader = css`
     width: 100%;
 
-    text-align: center;
+    text-align: left;
 
-    padding: 40px 0;
+    padding: 20px;
+
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `
