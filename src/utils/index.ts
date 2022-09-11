@@ -1,3 +1,4 @@
-import { axiosGet } from './axios'
+import getCarMaker from './getCarMaker'
 
-export { axiosGet }
+export { getCarMaker }
+export * from './axios'
