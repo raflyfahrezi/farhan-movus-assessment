@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
+import { TVehicleMake } from '@/models'
 import { CounterCard } from '@/components'
 
-import { TCounterProps } from './types'
+import { fetchVehicleMakeData } from './helpers'
 
-const Counter = ({ vehicleMakesTotal }: TCounterProps) => {
+const Counter = () => {
+    const [vehicleMakeList, setVehicleMakeList] = useState<TVehicleMake[]>([])
+
+    const fetchData = async () => {
+        const vehicleMakeDataResponse = await fetchVehicleMakeData()
+
+        setVehicleMakeList(vehicleMakeDataResponse)
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     return (
         <div>
             <CounterCard
                 title='Vehicle Makes Total'
-                value={vehicleMakesTotal}
+                value={vehicleMakeList.length}
             />
         </div>
     )
